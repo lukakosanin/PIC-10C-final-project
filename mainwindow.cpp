@@ -27,22 +27,10 @@ MainWindow::MainWindow(QWidget *parent) :
     months ->addItem("November");
     months ->addItem("December");
     QLineEdit* file_to_read = new QLineEdit;
-    QHBoxLayout* center = new QHBoxLayout;
+    QGridLayout* center = new QGridLayout;
 
-    QWidget* right_widg = new QWidget;
-    QWidget* left_widg = new QWidget;
-
-    QVBoxLayout* left = new QVBoxLayout;
-    QVBoxLayout* right = new QVBoxLayout;
-
-    right->addWidget(months);
-    left->addWidget(file_to_read);
-
-    right_widg->setLayout(right);
-    left_widg->setLayout(left);
-
-    center->addWidget(right_widg);
-    center->addWidget(left_widg);
+    center->addWidget(months,0,0);
+    center->addWidget(file_to_read,0,1);
 
     center_tile->setLayout(center);
     setCentralWidget(center_tile);
