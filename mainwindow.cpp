@@ -3,11 +3,16 @@
 #include <QString>
 #include <QComboBox>
 #include <QLayout>
-#include <QLineEdit>
+#include <QFileDialog>
+#include <QPushButton>
+#include <QLabel>
+#include <QStringList>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    chosen_file(""),
+    show_file(new QLineEdit("..."))
 {
     ui->setupUi(this);
     QString WindowTitle("CSV Reader");
@@ -26,19 +31,30 @@ MainWindow::MainWindow(QWidget *parent) :
     months ->addItem("October");
     months ->addItem("November");
     months ->addItem("December");
-    QLineEdit* file_to_read = new QLineEdit;
+    QHBoxLayout* right_lay = new QHBoxLayout;
+    QWidget* choose_file = new QWidget;
     QGridLayout* center = new QGridLayout;
+    QPushButton* browser = new QPushButton("Browse");
+    QLabel* title = new QLabel("Please choose a CSV file...");
+
+    connect(browser,SIGNAL(clicked(bool)),this,SLOT(file_chooser()))
+
+    right_lay->addWidget(title);
+    right_lay->addWidget(browser);
+    choose_file->setLayout(right_lay);
 
     center->addWidget(months,0,0);
-    center->addWidget(file_to_read,0,1);
-
+    center->addWidget(choose_file,0,1);
+    center->addWidget(show_file,1,1);
     center_tile->setLayout(center);
     setCentralWidget(center_tile);
 }
-/*void MainWindow::set_month(QString month)
+void MainWindow::file_chooser()
 {
+   chosen_file = QFileDialog::getOpenFileName(this,("Select your file"),"/Macintosh HD",("All Files(*.*);;SV files (*.csv)"));
+   show_file->setText(chosen_file);
+}
 
-}*/
 MainWindow::~MainWindow()
 {
     delete ui;

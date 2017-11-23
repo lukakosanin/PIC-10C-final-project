@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 #include <QString>
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QLineEdit>
+#include <QStringList>
 
 namespace Ui {
 class MainWindow;
@@ -15,9 +18,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 public slots:
-   // void set_month(QString month);
+     void file_chooser();
 private:
     Ui::MainWindow *ui;
+    QString chosen_file;
+    QLineEdit* show_file;
 };
+
 
 #endif // MAINWINDOW_H
