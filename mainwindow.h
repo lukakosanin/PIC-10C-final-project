@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QLineEdit>
 #include <QStringList>
+#include <QComboBox>
 
 namespace Ui {
 class MainWindow;
@@ -19,10 +20,14 @@ public:
     ~MainWindow();
 public slots:
      void file_chooser();
+     void choose_month(int);
+     void new_window();
 private:
     Ui::MainWindow *ui;
     QString chosen_file;
     QLineEdit* show_file;
+    int chosen_month;
+    QComboBox* months;
 };
 
 
