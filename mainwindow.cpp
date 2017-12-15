@@ -60,7 +60,8 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 void MainWindow::file_chooser()
 {
-   chosen_file = QFileDialog::getOpenFileName(this,("Select your file"),"/Macintosh HD",("All Files(*.*);;SV files (*.csv)"));
+
+   chosen_file = QFileDialog::getOpenFileName(this,("Select your file"),"/Macintosh HD",("All Files(*.*);;CSV files (*.csv)"));
    show_file->setText(chosen_file);
 }
 void MainWindow::choose_month(int)
