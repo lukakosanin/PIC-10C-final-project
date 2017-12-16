@@ -11,14 +11,13 @@ class File_Window : public QMainWindow
     Q_OBJECT
 public:
 
-    explicit File_Window(QWidget *parent = nullptr, int file_month = 0, QString input_file = " " );
-    //virtual ~File_Window();
+    explicit File_Window(QWidget *parent = nullptr, QString input_file = " " );
+
 signals:
 
 public slots:
 
 private:
-    int month;
     QString the_file;
 
 
