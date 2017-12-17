@@ -19,8 +19,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 public slots:
-     void file_chooser();
-     void new_window();
+     void file_chooser();//slot that connects the browse button to a file dialog
+     void new_window();//slot that creates the new file with the csv file
 private:
     Ui::MainWindow *ui;
     QString chosen_file;

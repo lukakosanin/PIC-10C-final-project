@@ -19,10 +19,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QString WindowTitle("CSV Reader");
     this->setWindowTitle(WindowTitle);
-    QWidget* center_tile = new QWidget;
-    QHBoxLayout* right_lay = new QHBoxLayout;
-    QWidget* choose_file = new QWidget;
-    QGridLayout* center = new QGridLayout;
+    QWidget* center_tile = new QWidget;//widget for the central widget
+    QHBoxLayout* right_lay = new QHBoxLayout;//layout for the button and its label
+    QWidget* choose_file = new QWidget;//widget for the right_lay
+    QGridLayout* center = new QGridLayout;//layout for the center_tile widget
     QPushButton* browser = new QPushButton("Browse");
     QLabel* title = new QLabel("Please choose a CSV file...");
     QPushButton* next_button = new QPushButton("Read File");
@@ -59,4 +59,5 @@ void MainWindow::new_window()
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete show_file;
 }
